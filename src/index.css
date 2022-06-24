@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.counterBadge{
+  min-width: 45px;
+}
+
+.firstAppNavbar .nav-item .nav-link.active{
+    color: green;
+    border-bottom: 1px solid black;
+}

@@ -1,26 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Component } from 'react';
 import './App.css';
+// import Counter from './components/counter';
+// import CounterList from './components/counterList';
+// import FinalCounterList from './components/finalCounterList';
+// import SignUpForm from './components/signUp';
+// import Navbar from './components/navbar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// interface AppProps {
+  
+// }
+ 
+// interface AppState {
+  
+// }
+ 
+class App extends Component<any, any> {
+  constructor(props:any){
+    super(props);
+    console.log("App- constructor");
+  }
+
+  componentDidMount(){
+    console.log("App - mounted");
+  }
+
+  render() {
+    console.log("App - rendered");
+    return ( 
+      // if you want to use multiple component / thing which will be return then.
+      // way1 : all should be inside one main div
+      // way2 : all should be inside React.Fragment
+
+      <React.Fragment>
+          {/* <CounterList /> */}
+          {/* <Navbar />
+          <div className='finalCounterListPage'>
+              <FinalCounterList />
+          </div>
+          <div className='signUpPage'>
+            <SignUpForm />
+          </div> */}
+      </React.Fragment>
+    );
+  }
 }
-
+ 
 export default App;
