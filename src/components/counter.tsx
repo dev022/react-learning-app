@@ -1,3 +1,5 @@
+// Currently this component is not in use.
+
 import * as React from 'react';
 import { Component } from 'react';
 

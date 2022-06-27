@@ -47,34 +47,31 @@ const About = () => {
 
     // get search params from route.
     const [searchParams,setSearchParams] = useSearchParams();
-    const name = searchParams.get('name');
-    const age = searchParams.get('age');
-    console.log(name,age);
+    
+    // const name = searchParams.get('name');
+    // const age = searchParams.get('age');
+
+    const universityName = searchParams.get('name');
+    const domain = searchParams.get('domain');
+    const country = searchParams.get('country');
+    const universityUrl = searchParams.get('url');
+
 
     return ( 
-        <div>
-            <h3>About</h3>
-            {/* if you want to set search params to the same route means current route */}
-            <button className='btn btn-secondary btn-sm my-3' onClick={()=>{setSearchParams({name:'test2', age:'20'})}}>Set search params to same route</button>
-
-            <h4>Value From Search Params</h4>
-            <p>Name is : {name ? name : '--'}</p>
-            <p>Age is : {age ? age : '--'}</p>
-
-            <div>
-                <button className='btn btn-primary btn-sm me-3' onClick={() => { navigate("aboutChild1") }}>Load Child1</button>
-                <button className='btn btn-primary btn-sm' onClick={() => { navigate("aboutChild2") }}>Load Child2</button>
-            </div>
-            {/* The <Outlet /> allows you to render components of its child routes. */}
-            <Outlet />
+        <div className='container'>
+            {/* <h3>About</h3> */}
+        
+            {/* <p>Name is : {name ? name : '--'}</p>
+            <p>Age is : {age ? age : '--'}</p> */}
 
             {/* Display data from API */}
+            <h4 className='mt-4'>User Details : </h4>
+            <p>Data From User Details API</p>
             {loading ? (<div className='mt-4'>Loading Data...</div>) : (
                 <div className="row mt-4">
                 <div className="col-md-8">
                     <div className="card mb-3">
                         <div className="card-body">
-                            <h4 className='mb-3'>Data From User Details API</h4>
                             <div className="row">
                                 <div className="col-sm-3">
                                     <h6>Name</h6>
@@ -112,6 +109,60 @@ const About = () => {
                 </div>
             </div>
             )}
+
+            <h4 className='mt-4'>University Details :</h4>
+            <p>Value From Search Params</p>
+            <div className="row mt-4">
+                <div className="col-md-8">
+                    <div className="card mb-3">
+                        <div className="card-body">
+                            <div className="row">
+                                <div className="col-sm-3">
+                                    <h6>Name</h6>
+                                </div>
+                                <div className="col-sm-9 text-secondary">
+                                    {universityName ? universityName : '---' }
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-sm-3">
+                                    <h6>Domain</h6>
+                                </div>
+                                <div className="col-sm-9 text-secondary">
+                                    {domain ? domain : '---'}
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-sm-3">
+                                    <h6>Country</h6>
+                                </div>
+                                <div className="col-sm-9 text-secondary">
+                                    {country ? country : '---'}
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="col-sm-3">
+                                    <h6>URL</h6>
+                                </div>
+                                <div className="col-sm-9 text-secondary">
+                                    {universityUrl ? universityUrl : '---'}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* if you want to set search params to the same route means current route */}
+            <button className='btn btn-secondary btn-sm my-3' onClick={()=>{setSearchParams({name:'Test University', domain:'test.edu', country:'India', url:'http://www.test.edu'})}}>Set search params to same route</button>
+
+            <div className='mb-3'>
+                <button className='btn btn-primary btn-sm me-3' onClick={() => { navigate("aboutChild1") }}>Load Child1</button>
+                <button className='btn btn-primary btn-sm' onClick={() => { navigate("aboutChild2") }}>Load Child2</button>
+            </div>
+            {/* The <Outlet /> allows you to render components of its child routes. */}
+            <Outlet />
+
         </div>
     );
 }

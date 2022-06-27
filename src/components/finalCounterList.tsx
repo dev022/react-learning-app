@@ -26,7 +26,7 @@ class FinalCounterList extends Component<any, any> {
     }
 
     state = {
-        // this counters are private property of this component, so its can't accessible outside it.
+        // this counters are private property of this component, so it can't accessible outside from it.
         // now we need to delete it based on delete btn clicked from counter component.
         // for that concept of raising and handling event by props is used. 
         counters:[
@@ -39,7 +39,10 @@ class FinalCounterList extends Component<any, any> {
     render() { 
         console.log("CounterList - Rendered");
         return ( 
-            <div>
+            <div className='container'>
+                <h4 className='mt-2'>Example of Component Communication</h4>
+                <p>This component is lazy loaded</p>
+
                 {this.state.counters.map(counter => (
                     // attribute passed from here we will get in Counter component as props (this.props)
                     // instead of passing single values let's pass whole one object.    
@@ -60,6 +63,7 @@ class FinalCounterList extends Component<any, any> {
         );
     }
 
+    // to incremnet counter
     incrementCount = (counter: singleCounter) => {
         console.log(counter);
         const counters = this.state.counters;
@@ -68,6 +72,7 @@ class FinalCounterList extends Component<any, any> {
         this.setState({ counters });
     }
 
+    // to delete counter
     deleteCounter = (counterId:number) => {
         console.log('delete counter worked', counterId);
         const updatedCountersArr = this.state.counters.filter(counter => counter.id !== counterId);

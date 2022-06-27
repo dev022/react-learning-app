@@ -12,4 +12,15 @@ export class CommonService{
             return error;
         });
     }
+
+    // get list of university
+    public async getAllListOfUniversity(){
+        return await axios.get('http://universities.hipolabs.com/search?country=United+States').then(response => {
+            console.log(response);
+            return response;
+        }).catch(error => {
+            console.log(error);
+            return error;
+        });
+    }
 }

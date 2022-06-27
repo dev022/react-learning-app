@@ -20,3 +20,7 @@ code {
     color: green;
     border-bottom: 1px solid black;
 }
+
+.universityTableRow{
+  cursor: pointer;
+}
