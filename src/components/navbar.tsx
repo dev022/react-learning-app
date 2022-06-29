@@ -68,6 +68,9 @@ class Navbar extends React.Component<any, any> {
                             <li className="nav-item">
                                 <NavLink to="counterList" className='nav-link'>Counter List</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink to="todo" className='nav-link'>ToDo</NavLink>
+                            </li>
                         </ul>
                         <div>
                             <button className="btn btn-outline-success" onClick={this.onLogOut}>Log Out</button>

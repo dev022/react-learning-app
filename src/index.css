@@ -24,3 +24,7 @@ code {
 .universityTableRow{
   cursor: pointer;
 }
+
+.completedTodo{
+  text-decoration: line-through;
+}

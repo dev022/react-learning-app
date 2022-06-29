@@ -10,6 +10,7 @@ import Dashboard from './dashboard';
 import Home from './home';
 import Navbar from './navbar';
 import ProtectedRoutes from './protectedRoutes';
+import TodoList from './todoList';
 
 // interface FullLayoutProps {
     
@@ -49,6 +50,7 @@ const FullLayout = () => {
                                             <CounterListComponent />
                                         </React.Suspense>
                                     }/>
+                                    <Route path='/todo' element={<TodoList />}></Route>
                                     {/* if someone enters the route which is not exist then we can display 404 page component */}
                                     <Route path='/*' element={<Page404 />}/>
                                 </Route>
