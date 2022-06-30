@@ -2,11 +2,11 @@ import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 
 // interface NavbarProps {
-    
+
 // }
- 
+
 // interface NavbarState {
-    
+
 // }
 
 // if component which has no state are called as stateless functional component.
@@ -25,12 +25,12 @@ import { NavLink } from 'react-router-dom';
 
 
 class Navbar extends React.Component<any, any> {
-    constructor(props:any){
+    constructor(props: any) {
         super(props);
         console.log("Navbar - constructor");
     }
 
-    componentDidMount(){
+    componentDidMount() {
         console.log("Navbar - mounted");
     }
 
@@ -40,9 +40,9 @@ class Navbar extends React.Component<any, any> {
         navigate("/login");
     };
 
-    render() { 
+    render() {
         console.log("Navbar - rendered");
-        return ( 
+        return (
 
             <nav className="navbar navbar-expand-sm bg-light firstAppNavbar">
                 <div className="container-fluid">
@@ -57,11 +57,10 @@ class Navbar extends React.Component<any, any> {
                                 {/* Use NavLink: it will apply active class to current one, only Link is not adding active class */}
                                 <NavLink to="home" className='nav-link'>Home</NavLink>
                             </li>
-                            <li className="nav-item">
-                                {/* <a className="nav-link" href="#">Dashboard</a> */}
-                                {/* state is used to pass data to route , also we can use it to pass state,props of one comp to other */}
-                                <NavLink to="dashboard/Dev" state={{name:'test',age:20}} className='nav-link'>Dashboard</NavLink>
-                            </li>
+                            {/* <li className="nav-item"> */}
+                            {/* state is used to pass data to route , also we can use it to pass state,props of one comp to other */}
+                            {/* <NavLink to="dashboard/Dev" state={{name:'test',age:20}} className='nav-link'>Dashboard</NavLink> */}
+                            {/* </li> */}
                             <li className="nav-item">
                                 <NavLink to="about" className='nav-link'>About</NavLink>
                             </li>
@@ -81,7 +80,7 @@ class Navbar extends React.Component<any, any> {
         );
     }
 }
- 
+
 
 // eslint-disable-next-line import/no-anonymous-default-export
 // export default () =>{
