@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { useEffect , useState} from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CommonService } from '../services/commonService';
 // import { Component } from 'react';
 
 // interface HomeProps {
-    
+
 // }
- 
+
 // interface HomeState {
-    
+
 // }
 
 const Home = () => {
@@ -22,17 +22,17 @@ const Home = () => {
     useEffect(() => {
         getUniversitiesList();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[]);
+    }, []);
 
     // get all list of university
     const getUniversitiesList = async () => {
         setLoading(true);
-        setTimeout(()=>{
+        setTimeout(() => {
             setLoading(false);
-        },3000);
+        }, 3000);
         const getList = await commonService.getAllListOfUniversity();
-        if(getList && getList.name !== 'AxiosError'){
-            setUniversityList(getList?.data?.slice(0,100));
+        if (getList && getList.name !== 'AxiosError') {
+            setUniversityList(getList?.data?.slice(0, 100));
             console.log(universityList);
             setLoading(false);
         }
@@ -49,16 +49,16 @@ const Home = () => {
     // when click on any university , navigate to other route & set search params for that route.
     const onSelectedUniversity = (university) => {
         navigate({
-            pathname:'/pages/about',
+            pathname: '/pages/about',
             search: `?name=${university?.name}&domain=${university?.domains[0]}&country=${university?.country}&url=${university?.web_pages[0]}`
         });
     }
 
-    return(
+    return (
         <div className='container m-2'>
             {/* <h3>Home Component</h3> */}
             {/* <button className='btn btn-secondary btn-sm my-3' onClick={goToAbout}>Go to About Page with search params</button> */}
-        
+
             <h3>University List : </h3>
             {loading ? (<div className='mt-4'>Loading Data...</div>) : (
                 <div className='p-3'>
@@ -73,8 +73,8 @@ const Home = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                { universityList?.map(data => (
-                                    <tr onClick={() => {onSelectedUniversity(data)}} className="universityTableRow">
+                                {universityList?.map(data => (
+                                    <tr key={data?.name} onClick={() => { onSelectedUniversity(data) }} className="universityTableRow">
                                         <th scope="row">{data?.name}</th>
                                         <td>{data?.domains[0]}</td>
                                         <td>{data?.country}</td>
@@ -101,5 +101,5 @@ const Home = () => {
 //         );
 //     }
 // }
- 
+
 export default Home;
