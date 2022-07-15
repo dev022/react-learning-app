@@ -28,3 +28,7 @@ code {
 .completedTodo{
   text-decoration: line-through;
 }
+
+.copyToClipboardIcon{
+  cursor: pointer !important;
+}

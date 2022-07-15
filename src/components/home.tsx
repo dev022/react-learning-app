@@ -21,6 +21,12 @@ const Home = () => {
 
     useEffect(() => {
         getUniversitiesList();
+
+        // code that will executed while component unmount from DOM
+        return () => {
+            console.log('Home component unmount');
+        }
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

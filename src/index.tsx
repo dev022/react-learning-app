@@ -12,6 +12,7 @@ import Login from './components/login';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import axios from "axios";
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const authToken = sessionStorage.getItem('token');
 

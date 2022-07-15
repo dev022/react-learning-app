@@ -6,6 +6,8 @@ import { addTodo } from '../action';
 const AddTodo = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
+    console.log('add todo called');
+
     // add to do 
     const onSubmitTodo = (data) => {
         // dispatch the addTodo method of action.
@@ -42,4 +44,11 @@ const AddTodo = () => {
 
 }
 
-export default AddTodo;
+// this component is used as child component inside todoList component.  
+// so if any change in todoList component, it will always call & render this component.
+// which will reduce app performance by calling & rendering component unneccessary.
+// to prevent it we can use React.memo() > it will call & render comp only if any change in 
+// state & props of this component.
+
+// export default AddTodo;
+export default React.memo(AddTodo);
